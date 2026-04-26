@@ -19,8 +19,8 @@ import numpy as np
 
 @st.cache_resource
 def load_and_preprocess_data():
-    credits = pd.read_csv("https://raw.githubusercontent.com/akshaychandra21/movie-recommender-system/main/tmdb_5000_credits.csv")
-    movies_df = pd.read_csv("https://raw.githubusercontent.com/akshaychandra21/movie-recommender-system/main/tmdb_5000_movies.csv")
+    credits = pd.read_csv("https://raw.githubusercontent.com/ashishpatel26/Content-Based-Recommender-System/main/tmdb_5000_credits.csv")
+    movies_df = pd.read_csv("https://raw.githubusercontent.com/ashishpatel26/Content-Based-Recommender-System/main/tmdb_5000_movies.csv")
 
     credits_column_renamed = credits.rename(index=str, columns={"movie_id": "id"})
     movies_df_merge = movies_df.merge(credits_column_renamed, on='id')
@@ -32,7 +32,7 @@ def load_and_preprocess_data():
 
     return movies_cleaned_df
 
-@st.cache_resource
+
 def compute_similarity_matrix(movies_cleaned_df):
     tfv = TfidfVectorizer(min_df=3, max_features=None,
                           strip_accents='unicode', analyzer='word',token_pattern=r'\w{1,}',
