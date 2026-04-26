@@ -19,8 +19,8 @@ import numpy as np
 
 @st.cache_resource
 def load_and_preprocess_data():
-    credits = pd.read_csv("https://raw.githubusercontent.com/abhi0212/movie-recommender-system/main/tmdb_5000_credits.csv")
-    movies_df = pd.read_csv("https://raw.githubusercontent.com/abhi0212/movie-recommender-system/main/tmdb_5000_movies.csv")
+    credits = pd.read_csv("https://raw.githubusercontent.com/akshaychandra21/movie-recommender-system/main/tmdb_5000_credits.csv")
+    movies_df = pd.read_csv("https://raw.githubusercontent.com/akshaychandra21/movie-recommender-system/main/tmdb_5000_movies.csv")
 
     credits_column_renamed = credits.rename(index=str, columns={"movie_id": "id"})
     movies_df_merge = movies_df.merge(credits_column_renamed, on='id')
